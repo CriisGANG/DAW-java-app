@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                             http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <!-- Configuración del archivo de bienvenida -->
+    <welcome-file-list>
+        <welcome-file>llibreria.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Consulta Servlet-->
+    <servlet>
+        <servlet-name>Consulta</servlet-name>
+        <servlet-class>project.Consulta</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Consulta</servlet-name>
+        <url-pattern>/Consulta</url-pattern>
+    </servlet-mapping>
+
+    <!-- Insertar Servlet -->
+    <servlet>
+        <servlet-name>Insertar</servlet-name>
+        <jsp-file>/insertar.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Insertar</servlet-name>
+        <url-pattern>/Insertar</url-pattern>
+    </servlet-mapping>
+
+    <!-- Actualizar Servlet -->
+    <servlet>
+        <servlet-name>Modificar</servlet-name>
+        <jsp-file>/Modificar.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Modificar</servlet-name>
+        <url-pattern>/Modificar</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Eliminar Servlet -->
+    <servlet>
+        <servlet-name>Eliminar</servlet-name>
+        <jsp-file>/eliminar.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Eliminar</servlet-name>
+        <url-pattern>/Eliminar</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

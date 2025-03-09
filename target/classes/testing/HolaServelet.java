@@ -8,10 +8,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Servlet que maneja las solicitudes GET y responde con un mensaje HTML.
+ */
 // Configuración del servlet usando @WebServlet
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
 
+    /**
+     * Maneja las solicitudes GET.
+     *
+     * @param request  el objeto HttpServletRequest que contiene la solicitud del cliente
+     * @param response el objeto HttpServletResponse que contiene la respuesta del servlet
+     * @throws ServletException si ocurre un error específico del servlet
+     * @throws IOException      si ocurre un error de entrada/salida
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {

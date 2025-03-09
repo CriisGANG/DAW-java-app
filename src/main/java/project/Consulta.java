@@ -13,31 +13,34 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * Servlet que maneja las solicitudes GET y realiza una consulta a la base de datos.
+ * Servlet que maneja les sol·licituds GET i realitza una consulta a la base de dades.
  */
 @WebServlet("/consulta")
 public class Consulta extends HttpServlet {
 
     /**
-     * Maneja las solicitudes GET.
+     * Maneja les sol·licituds GET.
      *
-     * @param request  el objeto HttpServletRequest que contiene la solicitud del cliente
-     * @param response el objeto HttpServletResponse que contiene la respuesta del servlet
-     * @throws ServletException si ocurre un error específico del servlet
-     * @throws IOException      si ocurre un error de entrada/salida
+     * @param request  l'objecte HttpServletRequest que conté la sol·licitud del client
+     * @param response l'objecte HttpServletResponse que conté la resposta del servlet
+     * @throws ServletException si ocorre un error específic del servlet
+     * @throws IOException      si ocorre un error d'entrada/sortida
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
 
+        // Establir la connexió amb la base de dades i realitzar la consulta
         try (Connection conn = DatabaseConnection.getConnectionInstance();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM llibres")) {
 
+            // Escriure la resposta HTML
             PrintWriter out = response.getWriter();
             out.println("<html><body><h1>Titol</h1><ul>");
 
+            // Iterar sobre els resultats de la consulta
             while (rs.next()) {
                 String titol = rs.getString("ID");
                 String isbn = rs.getString("titol");
@@ -46,7 +49,7 @@ public class Consulta extends HttpServlet {
 
             out.println("</ul></body></html>");
         } catch (Exception e) {
-            throw new ServletException("Error al acceder a la base de datos", e);
+            throw new ServletException("Error al accedir a la base de dades", e);
         }
     }
 }
